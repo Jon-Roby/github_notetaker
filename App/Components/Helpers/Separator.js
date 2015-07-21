@@ -2,7 +2,7 @@ var React = require('react-native');
 
 var {
   View,
-  Stylesheet
+  StyleSheet
 } = React;
 
 var styles = StyleSheet.create({
