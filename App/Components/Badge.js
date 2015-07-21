@@ -1,3 +1,12 @@
+var React = require('react-native');
+
+var {
+  Text,
+  View,
+  Image,
+  Stylesheet
+} = React;
+
 var styles = StyleSheet.create({
   container: {
     backgroundColor: '#48BBEC',
@@ -23,3 +32,17 @@ var styles = StyleSheet.create({
     alignSelf: 'center'
   }
 });
+
+class Badge extends React.component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Image style={styles.image} source={{uri: this.props.userInfo.avatar_url}}
+        <Text style={styles.name}> {this.props.userInfo.name} </Text>
+        <Text style={styles.handle}> {this.props.userInfo.login} </Text>
+      </View>
+    )
+  }
+}
+
+module.exports = Badge;
