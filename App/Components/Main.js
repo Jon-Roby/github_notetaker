@@ -12,6 +12,7 @@ var {
 } = React;
 
 var styles = StyleSheet.create({
+
   mainContainer: {
     flex: 1,
     padding: 30,
@@ -20,12 +21,14 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#48BBEC'
   },
+
   title: {
     marginBottom: 20,
     fontSize: 25,
     textAlign: 'center',
     color: '#fff'
   },
+
   searchInput: {
     height: 50,
     padding: 4,
@@ -36,11 +39,13 @@ var styles = StyleSheet.create({
     borderRadius: 8,
     color: 'white'
   },
+
   buttonText: {
     fontSize: 18,
     color: '#111',
     alignSelf: 'center'
   },
+
   button: {
     height: 45,
     flexDirection: 'row',
@@ -53,6 +58,7 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
+  
 });
 
 class Main extends React.Component {
@@ -100,6 +106,10 @@ class Main extends React.Component {
   }
 
   render() {
+    var showErr = (
+      this.state.error ? <Text> {this.state.error} </Text> : <View></View>
+    );
+
     return (
       <View style={styles.mainContainer}>
         <Text style={styles.title}> Search for a Github User </Text>
@@ -113,6 +123,11 @@ class Main extends React.Component {
           underlayColor="white">
             <Text style={styles.buttonText}> SEARCH </Text>
         </TouchableHighlight>
+        <ActivityIndicatorIOS
+          animating={this.state.isLoading}
+          color="#111111"
+          size ="large"></ActivityIndicatorIOS>
+        {showErr}
       </View>
     )
   }
