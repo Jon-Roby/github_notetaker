@@ -1,7 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
 
 var React = require('react-native');
@@ -12,12 +8,12 @@ var {
   View,
 } = React;
 
-var GithubNotetaker = React.createClass({
-  render: function() {
+class GithubNotetaker extends React.Component {
+  render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to Github Notetaker!
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
@@ -29,7 +25,7 @@ var GithubNotetaker = React.createClass({
       </View>
     );
   }
-});
+};
 
 var styles = StyleSheet.create({
   container: {
