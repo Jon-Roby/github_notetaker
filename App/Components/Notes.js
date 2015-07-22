@@ -130,5 +130,3 @@ Notes.propTypes = {
   userInfo: React.PropTypes.object.isRequired,
   notes: React.PropTypes.object.isRequired
 }
-
-module.exports = Notes;
