@@ -36,27 +36,27 @@ var styles = StyleSheet.create({
   }
 });
 
-class Repositories extends React.Component {
-  openPage(url) {
+class Repositories extends React.Component{
+  openPage(url){
     this.props.navigator.push({
-      component: Web_View,
       title: 'Web View',
+      component: Web_View,
       passProps: {url}
     });
   }
-  render() {
+  
+  render(){
     var repos = this.props.repos;
-    var list = repos.map( (item, index) => {
+    var list = repos.map((item, index) => {
       var desc = repos[index].description ? <Text style={styles.description}> {repos[index].description} </Text> : <View />;
       return (
         <View key={index}>
           <View style={styles.rowContainer}>
             <TouchableHighlight
-              onPress={this.openPage.bind(this, repos[index].html_url )}
+              onPress={this.openPage.bind(this, repos[index].html_url)}
               underlayColor='transparent'>
               <Text style={styles.name}>{repos[index].name}</Text>
             </TouchableHighlight>
-
             <Text style={styles.stars}> Stars: {repos[index].stargazers_count} </Text>
             {desc}
           </View>
@@ -64,6 +64,7 @@ class Repositories extends React.Component {
         </View>
       )
     });
+
     return (
       <ScrollView style={styles.container}>
         <Badge userInfo={this.props.userInfo} />
